@@ -25,13 +25,11 @@ jobs:
 
       - name: Run Data Pipeline
         run: |
-          cd "Data Pipeline"
           jupyter nbconvert --to script data_pipeline.ipynb --output data_pipeline
           python data_pipeline.py
 
       - name: Train Model
         run: |
-          cd "Model Training & Tracking"
           jupyter nbconvert --to script train.ipynb --output train
           python train.py
 
