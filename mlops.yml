@@ -1,0 +1,40 @@
+name: MLOps Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  mlops:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip install pandas scikit-learn xgboost mlflow scipy numpy
+
+      - name: Run Data Pipeline
+        run: |
+          cd "Data Pipeline"
+          jupyter nbconvert --to script data_pipeline.ipynb --output data_pipeline
+          python data_pipeline.py
+
+      - name: Train Model
+        run: |
+          cd "Model Training & Tracking"
+          jupyter nbconvert --to script train.ipynb --output train
+          python train.py
+
+      - name: Run Tests
+        run: |
+          python -m pytest tests/ -v

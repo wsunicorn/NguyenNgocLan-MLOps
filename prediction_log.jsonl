@@ -1,0 +1,5 @@
+{"timestamp": "2026-05-04T11:16:55.163953", "text_length": 7, "predicted_label": "spam"}
+{"timestamp": "2026-05-04T11:16:55.164868", "text_length": 8, "predicted_label": "ham"}
+{"timestamp": "2026-05-04T11:16:55.166036", "text_length": 4, "predicted_label": "spam"}
+{"timestamp": "2026-05-04T11:16:55.166036", "text_length": 5, "predicted_label": "ham"}
+{"timestamp": "2026-05-04T11:16:55.166036", "text_length": 4, "predicted_label": "spam"}
